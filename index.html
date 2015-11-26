@@ -25,27 +25,13 @@
 
   <div data-role="main" class="ui-content">
 
-<iframe height="750" width="100%"  frameborder ="0" scrolling="no" src="http://es.aliexpress.com/wholesale?catId=0&initiative_id=SB_20151126022427&SearchText=atril+tablet"></iframe>
-
 
 
   </div>
 
 
   <div data-role="footer" data-position="fixed" >
-    <button style="font-size: 3em;">Scan</button></p>
 
-<script>
-    document.addEventListener( "deviceready", function() {       
-        function scanCode() {
-            cordova.plugins.barcodeScanner.scan(
-                function() {}, // success
-                function() {}  // error
-            );
-        }
-       document.querySelector( "button" ).addEventListener( "click", scanCode );
-    });
-</script>
   </div>
 </div> 
 
