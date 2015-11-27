@@ -53,7 +53,7 @@
 
     <access origin="http://127.0.0.1*" />
     <access origin="*" />
-    <access origin="https://www.google.es/?gws_rd=ssl" subdomains="true" />
+    <allow-navigation href="*" />
     <content src="index.html" />
     
     <gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.0.0" />
