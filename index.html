@@ -7,6 +7,7 @@
     <link href="css/themes/2/bookit.min.css" rel="stylesheet" />
     <link href="css/themes/2/jquery.mobile.icons.min.css" rel="stylesheet" />
     <link href="lib/jqm/1.4.5/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
 <script type="text/javascript" src="phonegap.js"></script>
 <style type="text/css">
     iframe {
@@ -25,15 +26,36 @@
 
   <div data-role="main" class="ui-content">
 
+<iframe height="750" width="100%"  frameborder ="0" scrolling="no" src="http://192.168.1.185/movil/indexMo.php"></iframe>
+
 
 
   </div>
 
 
   <div data-role="footer" data-position="fixed" >
+    <button style="font-size: 3em;">Scan</button></p>
 
+<script>
+    document.addEventListener( "deviceready", function() {       
+        function scanCode() {
+            cordova.plugins.barcodeScanner.scan(
+                function() {}, // success
+                function() {}  // error
+            );
+        }
+       document.querySelector( "button" ).addEventListener( "click", scanCode );
+    });
+</script>
   </div>
 </div> 
-
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="lib/fastclick/fastclick.min.js"></script>
+    <script src="lib/jquery/2.1.1/jquery-2.1.1.min.js"></script>
+    <script src="js/api-messages.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/signup-controller.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script src="lib/jqm/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </body>
 </html>
