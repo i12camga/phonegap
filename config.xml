@@ -54,6 +54,8 @@
 
     <access origin="http://127.0.0.1*" />
     <access origin="*" />
+    <access origin="http://google.com" />
+
     <allow-navigation href="*" />
     <content src="index.html" />
     
