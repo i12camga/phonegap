@@ -58,6 +58,6 @@
 
     <allow-navigation href="*" />
     <content src="index.html" />
-    <<plugin name="com.jp.whitelistplugin" spec="1.1.2" source="pgb" />
+    <plugin name="com.jp.whitelistplugin" spec="1.1.2" source="pgb" />
     <gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.0.0" />
 </widget>
