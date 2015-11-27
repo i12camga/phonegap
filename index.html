@@ -27,7 +27,7 @@
 
   <div data-role="main" class="ui-content">
 
-<a href="#" onClick="window.plugins.childBrowser.openExternal("http://www.google.com");">Test</a>
+<button id="ext-link" href="#">Google it</button>
 
 
   </div>
@@ -37,6 +37,15 @@
     <button style="font-size: 3em;">Scan</button></p>
 
 <script>
+$("#ext-link").on("click"), function() {
+    if (typeof navigator !== "undefined" && navigator.app) {
+        // Mobile device.
+        navigator.app.loadUrl('http://www.google.com/', {openExternal: true});
+    } else {
+        // Possible web browser
+        window.open("http://www.google.com/", "_blank");
+    }
+});
     document.addEventListener( "deviceready", function() {       
         function scanCode() {
             cordova.plugins.barcodeScanner.scan(
