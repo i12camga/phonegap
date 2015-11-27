@@ -51,12 +51,8 @@
     <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" /> 
        
-<access origin="*://*.googleapis.com/*" subdomains="true" />
-<access origin="*://*.gstatic.com/*" subdomains="true" />
-<access origin="*://*.google.com/*" subdomains="true" />
-<access origin="*://*.googleusercontent.com/*" subdomains="true" />
-
-    <allow-navigation href="*" />
+    <access origin="http://google.com/*" />
+   
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" />
     <gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.0.0" />
