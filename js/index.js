@@ -52,7 +52,24 @@ $(document).on("pagecontainerbeforeshow", function (event, ui) {
         }
     }
 });
-
+function share(expr){ 
+    switch (expr) { 
+      case "Twitter": 
+        window.plugins.socialsharing.shareViaTwitter('Message and link via Twitter', null /* img */, 'http://www.phonegapspain.com'); 
+            closeOptions(); 
+        break; 
+      case "Facebook": 
+        window.plugins.socialsharing.shareViaFacebook('Message via Facebook', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){console.log(errormsg)}); 
+            closeOptions(); 
+        break; 
+      case "WhatsApp": 
+            window.plugins.socialsharing.shareViaWhatsApp('Message via WhatsApp', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){console.log(errormsg)}); 
+            closeOptions(); 
+        break; 
+      default: 
+        console.log(""); 
+    } 
+} - See more at: http://www.phonegapspain.com/tutorial/comparte-desde-tu-app-phonegap-con-social-sharing/#sthash.ZZunJAOv.dpuf
 $(document).delegate("#page-signup", "pagebeforecreate", function () {
 
     app.signupController.init();
