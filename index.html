@@ -18,72 +18,30 @@
 </style>
 </head>
 <body>
+<div data-role="page" id="pageone">
+  <div data-role="header" data-position="fixed" >
+    <h1>Insert Page Title Here</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+ <form>
+    Username: <input type="text" size="25" id="user" onkeyup= "login()" />
+    <br />
+    Password: <input type="text" size="25" id="pass" onkeyup= "login()"/>
+    <br />
+    <input type="text" size="25" id="message" value="error" />
+    <input type="button" value="Submit" onclick="login()"/>
+    </form>
 
 
+  </div>
 
-<div data-role="page" id="inicio">
 
-	<div data-role="header">
-		<h1>Autenticacion de Usuario</h1>
-	</div>
-    
-	<div data-role="content">	
-		<form id="formulario" >
-      
-      			<label> Usuario </label>
-      			<input type="text" id="nombredeusuario" name="nombredeusuario">
-      
-      			<label> Password </label>
-     			<input type="password" id="clave" name="clave" >
+  <div data-role="footer" data-position="fixed" >
 
-      			<input type="submit" value="Login" id="botonLogin">
-      
-    		</form>		
-	</div>
-	 
-</div>
- 
-<div data-role="page" id="home">
-
-	<div data-role="header">
-		<h1>Bienvenido</h1>
-	</div>
-
-	<div data-role="content">	
-		<h2> Bienvenido a la aplicacion </h2>
-		<h3> Su usuario y password son válidos</h3>
-	</div>
-
-</div>
-
-<script>
-$('#formulario').submit(function() { 
-	
-	 
-	// recolecta los valores que inserto el usuario
-	var datosUsuario = $("#nombredeusuario").val()
-	var datosPassword = $("#clave").val()
-	
-  	archivoValidacion = "http://192.168.1.185/movil/contrase.php?jsoncallback=?"
-	$.getJSON( archivoValidacion, { usuario:datosUsuario ,password:datosPassword})
-	.done(function(respuestaServer) {
-		
-		alert(respuestaServer.mensaje + "\nGenerado en: " + respuestaServer.hora + "\n" +respuestaServer.generador)
-		
-		if(respuestaServer.validacion == "ok"){
-		  
-		 	/// si la validacion es correcta, muestra la pantalla "home"
-			$.mobile.changePage("#pageone")
-		  
-		}else{
-		  
-		  $.mobile.changePage("#home")
-		}
-  
-	})
-	return false;
-})
-	<div data-role="page" id="pageone">
+  </div>
+</div> 
+<div data-role="page" id="pageone">
   <div data-role="header" data-position="fixed" >
     <h1>Insert Page Title Here</h1>
   </div>
@@ -115,6 +73,26 @@ $('#formulario').submit(function() {
 </script>
   </div>
 </div> 
+
+
+
+
+<script>
+function login() {
+            $(document).ready(function() {
+           var user = $("#user").val();
+           var pass = $("#pass").val();
+     $.ajax({
+            url: "",  
+            type: "GET",        
+            data: { username: user, password: pass }     
+            cache: false,
+            success: function (html) {  
+                alert(html);      
+            }   
+          });
+       });
+}   
 </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script src="lib/fastclick/fastclick.min.js"></script>
