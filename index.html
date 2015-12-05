@@ -9,17 +9,6 @@
     <link href="lib/jqm/1.4.5/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="css/app.css" />
 <script type="text/javascript" src="phonegap.js"></script>
-      <script type="text/javascript">
-             function appReady(){
-				$.ajax({
-					url:'http://192.168.1.185/movil/reply.php?callback=?',
-					success:function(data){
-											$('#main').html(data);
-										  }												
-					});
-             }
-             document.addEventListener("deviceready", appReady, false);
-        </script>
 <style type="text/css">
     iframe {
         width: 1px;
@@ -30,12 +19,15 @@
 
 </head>
 <body>
+
 <div data-role="page" id="pageone">
   <div data-role="header" data-position="fixed" >
     <h1>Insert Page Title Here</h1>
   </div>
 
   <div data-role="main" class="ui-content">
+
+<iframe height="750" width="100%"  frameborder ="0" scrolling="yes" src="http://192.168.1.185/movil/indexMo.php"></iframe>
 <p>Enter a number and click OK:</p>
 
 <input id="id1" type="number" min="100" max="300">
@@ -45,36 +37,18 @@
 
 <p id="demo"></p>
 
-     <div id="main">
-     </div>
 
+  </div>
+
+
+  <div data-role="footer" data-position="fixed" >
+<button onclick="window.plugins.socialsharing.share('Message, image and link', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, image and link</button>
+<button onclick="window.plugins.socialsharing.share('Message, subject, image and link', 'The subject', 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, subject, image and link</button>
+    <button onclick="scanear()">OK</button>
+
+
+  </div>
 <script>
-
-
-
-function connect(e) 
-{ 
-var term= {button:e}; 
-$.ajax({ 
-url:'http://192.168.1.185/movil/reply.php', 
-type:'POST', 
-data:term, 
-dataType:'json', 
-error:function(jqXHR,text_status,strError){ 
-alert(“no connection”);}, 
-timeout:60000, 
-success:function(data){ 
-$("#result").html(""); 
-for(var i in data){ 
-$("#result").append("<li>"+data[i]+"</li>"); 
-} 
-} 
-});} 
-
-
-
-
-
 function scanear(){ 
     cordova.plugins.barcodeScanner.scan( 
         function (result) {   
@@ -94,36 +68,6 @@ function myFunction() {
     } 
 } 
 </script>
-
-
-  </div>
-
-
-  <div data-role="footer" data-position="fixed" >
-<button onclick="scanear()">OK</button>
-  </div>
-</div> 
-<div data-role="page" id="pageone">
-  <div data-role="header" data-position="fixed" >
-    <h1>Insert Page Title Here</h1>
-  </div>
-
-  <div data-role="main" class="ui-content">
-
-<iframe height="750" width="100%"  frameborder ="0" scrolling="yes" src="http://192.168.1.185/movil/indexMo.php"></iframe>
-
-
-
-  </div>
-
-
-  <div data-role="footer" data-position="fixed" >
-<button onclick="window.plugins.socialsharing.share('Message, image and link', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, image and link</button>
-<button onclick="window.plugins.socialsharing.share('Message, subject, image and link', 'The subject', 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, subject, image and link</button>
-    <button style="font-size: 3em;">Scan</button></p>
-
-
-  </div>
 </div> 
 
 
