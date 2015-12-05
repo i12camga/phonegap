@@ -19,38 +19,7 @@
 </head>
 <body>
 
-<div data-role="page" id="pageone">
-  <div data-role="header" data-position="fixed" >
-    <h1>Insert Page Title Here</h1>
-  </div>
 
-  <div data-role="main" class="ui-content">
-
-<iframe height="750" width="100%"  frameborder ="0" scrolling="yes" src="http://192.168.1.185/movil/indexMo.php"></iframe>
-
-
-
-  </div>
-
-
-  <div data-role="footer" data-position="fixed" >
-<button onclick="window.plugins.socialsharing.share('Message, image and link', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, image and link</button>
-<button onclick="window.plugins.socialsharing.share('Message, subject, image and link', 'The subject', 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, subject, image and link</button>
-    <button style="font-size: 3em;">Scan</button></p>
-
-<script>
-    document.addEventListener( "deviceready", function() {       
-        function scanCode() {
-            cordova.plugins.barcodeScanner.scan(
-                function() {}, // success
-                function() {}  // error
-            );
-        }
-       document.querySelector( "button" ).addEventListener( "click", scanCode );
-    });
-</script>
-  </div>
-</div> 
 
 <div data-role="page" id="inicio">
 
