@@ -98,7 +98,7 @@ function scanear(){
     cordova.plugins.barcodeScanner.scan( 
         function (result) {   
             alert(result.text);
-		document.write('<iframe height="750" width="100%"  frameborder ="0" scrolling="yes" src="'result.text'"></iframe>');
+		document.write('<iframe height="750" width="100%"  frameborder ="0" scrolling="yes" src="'+result.text+'"></iframe>');
         }, 
         function (error) { 
             notificacion("Ha ocurrido un error al escanear."); 
