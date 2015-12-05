@@ -42,8 +42,7 @@
 
 
   <div data-role="footer" data-position="fixed" >
-<button onclick="window.plugins.socialsharing.share('visualizar', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://192.168.1.185/movil/indexMo.php')">message, image and link</button>
-
+<a href="#pageQR" data-rel="dialog" data-transition="pop">QR</a>
 	<a href="#pageQR" data-rel="dialog" data-transition="pop">QR</a>
 
   </div>
@@ -59,13 +58,48 @@ function scanear(){
     ); 
 };
 function myFunction() {
-    var inpObj = document.getElementById("id1");
-    if (inpObj.checkValidity() == false) {
-        document.getElementById("demo").innerHTML = inpObj.validationMessage;
-    } else {
-        document.getElementById("demo").innerHTML = "Input OK";
-    } 
-} 
+var formulario = document.forms['formulario'];
+var campo = formulario['campo'].value;
+    alert(campo);
+}
+</script>
+</script>
+</div> 
+
+
+
+
+
+
+<div data-role="page" id="pageSocial">
+  <div data-role="header" data-position="fixed" >
+    <h1>Insert Page Title Here</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+<p>Click the button to display an alert box.</p>
+<form id="formulario">
+    <input type="text" id="campo" />
+</form>
+
+<form id="formulario">
+    <input type="text" id="campo" />
+</form>
+<button onclick="myFunction()">Try it</button>
+<p></p>
+<p></p>
+<p></p>
+  <div data-role="footer" data-position="fixed" >
+
+
+  </div>
+<script>
+function myFunction() {
+var formulario = document.forms['formulario'];
+var campo = formulario['campo'].value;
+    
+window.plugins.socialsharing.share('visualizar', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://192.168.1.185/movil/elementos.php?valor='+campo);
+}
 </script>
 </div> 
 
