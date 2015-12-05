@@ -9,6 +9,17 @@
     <link href="lib/jqm/1.4.5/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="css/app.css" />
 <script type="text/javascript" src="phonegap.js"></script>
+      <script type="text/javascript">
+             function appReady(){
+				$.ajax({
+					url:'http://192.168.1.185/movil/reply.php?callback=?',
+					success:function(data){
+											$('#main').html(data);
+										  }												
+					});
+             }
+             document.addEventListener("deviceready", appReady, false);
+        </script>
 <style type="text/css">
     iframe {
         width: 1px;
@@ -34,14 +45,8 @@
 
 <p id="demo"></p>
 
-
-<div><center><b>Bikes or Cars</b></center> 
-<center><input onclick="connect(this.value)" type="button" value="cars" /></center> 
-<center><input onclick="connect(this.value)" type="button" value="bikes" /></center> 
-<center><b>Results</b></center> 
-<ul id="result"></ul></div>
-
-
+     <div id="main">
+     </div>
 
 <script>
 
