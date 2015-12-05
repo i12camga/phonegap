@@ -84,13 +84,10 @@ function myFunction() {
   </div>
 
   <div data-role="main" class="ui-content">
-	 <button onclick="scanear()">OK</button>
-<iframe height="750" width="100%"  frameborder ="0" scrolling="yes" src="http://192.168.1.185/movil/indexMo.php"></iframe>
+	 <button onclick="scanear()"></button>
+
 
   <div data-role="footer" data-position="fixed" >
-<button onclick="window.plugins.socialsharing.share('visualizar', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://192.168.1.185/movil/indexMo.php')">message, image and link</button>
-
-    <button onclick="scanear()">¡Comenzar!</button>
 
 
   </div>
@@ -98,7 +95,8 @@ function myFunction() {
 function scanear(){ 
     cordova.plugins.barcodeScanner.scan( 
         function (result) {   
-            alert(result.text); 
+            alert(result.text);
+		document.write('<iframe height="750" width="100%"  frameborder ="0" scrolling="yes" src="'result.text'"></iframe>');
         }, 
         function (error) { 
             notificacion("Ha ocurrido un error al escanear."); 
