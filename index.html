@@ -16,6 +16,7 @@
         *width: 100%;
     }
 </style>
+
 </head>
 <body>
 <div data-role="page" id="pageone">
@@ -28,14 +29,22 @@
 
 <input id="id1" type="number" min="100" max="300">
 <button onclick="myFunction()">OK</button>
-<button onclick="scanear()">OK</button>
-
 
 <p>If the number is less than 100 or greater than 300, an error message will be displayed.</p>
 
 <p id="demo"></p>
 
 <script>
+function scanear(){ 
+    cordova.plugins.barcodeScanner.scan( 
+        function (result) {   
+            alert(result.text); 
+        }, 
+        function (error) { 
+            notificacion("Ha ocurrido un error al escanear."); 
+        } 
+    ); 
+};
 function myFunction() {
     var inpObj = document.getElementById("id1");
     if (inpObj.checkValidity() == false) {
@@ -51,7 +60,7 @@ function myFunction() {
 
 
   <div data-role="footer" data-position="fixed" >
-
+<button onclick="scanear()">OK</button>
   </div>
 </div> 
 <div data-role="page" id="pageone">
@@ -73,19 +82,7 @@ function myFunction() {
 <button onclick="window.plugins.socialsharing.share('Message, subject, image and link', 'The subject', 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, subject, image and link</button>
     <button style="font-size: 3em;">Scan</button></p>
 
-<script>
-function scanear(){ 
-    cordova.plugins.barcodeScanner.scan( 
-        function (result) {   
-            alert(result.text); 
-        }, 
-        function (error) { 
-            notificacion("Ha ocurrido un error al escanear."); 
-        } 
-    ); 
-};
-- See more at: http://www.phonegapspain.com/tutorial/como-leer-codigos-qr-con-phonegap-y-barcode-scanner/#sthash.2XD0UqBb.dpuf
-</script>
+
   </div>
 </div> 
 
