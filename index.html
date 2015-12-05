@@ -16,53 +16,37 @@
         *width: 100%;
     }
 </style>
-    <script>
-    $(document).ready(function() {
- 
-        $("#testLink").click(function(e) {
-            e.preventDefault();
-		alert("funciono");
-            // Un mensaje de estado
-            $("#resultBlock").html("Obteniendo los datos - esperando...");
-            // Hacemos un peticion web y obtenemos la data
-            $.get("http://192.168.1.185/movil/contrase.php", {}, function(data) {
-                // Cargamos la data dentro de la etiqueta p
-                $("#resultBlock").html(data);
-            })
-        });
- 
-    });
-    </script>
 </head>
 <body>
-<div data-role="page" id="page">
-    <div data-role="header">
-        <h1>Demo Datos remotos</h1>
-    </div>
-    <div data-role="content">
-        <!-- Haciendo clic sobre el enlace se mostrara la data en la capa de abajo -->
-        <a id="testLink" rel="external">Obtener la data</a>
-        <div data-role="collapsible">
-            <h3>Resultado: </h3>
-            <p id="resultBlock"></p>
-        </div>
-    </div>
-</div>
 <div data-role="page" id="pageone">
   <div data-role="header" data-position="fixed" >
     <h1>Insert Page Title Here</h1>
   </div>
 
   <div data-role="main" class="ui-content">
- <form>
-    Username: <input type="text" size="25" id="user" onkeyup= "login()" />
-    <br />
-    Password: <input type="text" size="25" id="pass" onkeyup= "login()"/>
-    <br />
-    <input type="text" size="25" id="message" value="error" />
-    <input type="button" value="Submit" onclick="login()"/>
-    </form>
 
+
+
+
+
+
+<script>
+function validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == null || x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+}
+</script>
+</head>
+<body>
+
+<form name="myForm" action="demo_form.asp"
+onsubmit="return validateForm()" method="post">
+Name: <input type="text" name="fname">
+<input type="submit" value="Submit">
+</form>
 
   </div>
 
