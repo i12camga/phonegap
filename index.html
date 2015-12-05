@@ -42,9 +42,56 @@
 
 
   <div data-role="footer" data-position="fixed" >
-<button onclick="window.plugins.socialsharing.share('Message, image and link', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, image and link</button>
-<button onclick="window.plugins.socialsharing.share('Message, subject, image and link', 'The subject', 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, subject, image and link</button>
-    <button onclick="scanear()">OK</button>
+<button onclick="window.plugins.socialsharing.share('visualizar', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://192.168.1.185/movil/indexMo.php')">message, image and link</button>
+
+    <button href="pageQR" data-rel="dialog" data-transition="pop">QR</button>
+
+
+  </div>
+<script>
+function scanear(){ 
+    cordova.plugins.barcodeScanner.scan( 
+        function (result) {   
+            alert(result.text); 
+        }, 
+        function (error) { 
+            notificacion("Ha ocurrido un error al escanear."); 
+        } 
+    ); 
+};
+function myFunction() {
+    var inpObj = document.getElementById("id1");
+    if (inpObj.checkValidity() == false) {
+        document.getElementById("demo").innerHTML = inpObj.validationMessage;
+    } else {
+        document.getElementById("demo").innerHTML = "Input OK";
+    } 
+} 
+</script>
+</div> 
+
+
+
+
+
+
+
+
+
+
+<div data-role="page" id="pageQR">
+  <div data-role="header" data-position="fixed" >
+    <h1>Insert Page Title Here</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+	 <button onclick="scanear()">OK</button>
+<iframe height="750" width="100%"  frameborder ="0" scrolling="yes" src="http://192.168.1.185/movil/indexMo.php"></iframe>
+
+  <div data-role="footer" data-position="fixed" >
+<button onclick="window.plugins.socialsharing.share('visualizar', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://192.168.1.185/movil/indexMo.php')">message, image and link</button>
+
+    <button onclick="scanear()">¡Comenzar!</button>
 
 
   </div>
