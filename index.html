@@ -28,7 +28,9 @@
 
 <input id="id1" type="number" min="100" max="300">
 <button onclick="myFunction()">OK</button>
-<button onclick="prueba()">OK</button>
+<button onclick="scanear()">OK</button>
+
+
 <p>If the number is less than 100 or greater than 300, an error message will be displayed.</p>
 
 <p id="demo"></p>
@@ -72,15 +74,17 @@ function myFunction() {
     <button style="font-size: 3em;">Scan</button></p>
 
 <script>
-    prueba( "deviceready", function() {       
-        function scanCode() {
-            cordova.plugins.barcodeScanner.scan(
-                function() {}, // success
-                function() {}  // error
-            );
-        }
-       document.querySelector( "button" ).addEventListener( "click", scanCode );
-    });
+function scanear(){ 
+    cordova.plugins.barcodeScanner.scan( 
+        function (result) {   
+            alert(result.text); 
+        }, 
+        function (error) { 
+            notificacion("Ha ocurrido un error al escanear."); 
+        } 
+    ); 
+};
+- See more at: http://www.phonegapspain.com/tutorial/como-leer-codigos-qr-con-phonegap-y-barcode-scanner/#sthash.2XD0UqBb.dpuf
 </script>
   </div>
 </div> 
