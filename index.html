@@ -15,6 +15,21 @@
         min-width: 100%;
         *width: 100%;
     }
+
+#primera {
+background-color:#662d91;
+
+float:right;
+
+}
+
+#segunda {
+background-color:#662d91;
+
+float:left;
+
+}
+
 </style>
 
 </head>
@@ -22,7 +37,8 @@
 
 <div data-role="page" id="pageone">
   <div data-role="header" data-position="fixed" >
-    <h1>Insert Page Title Here</h1>
+	<center><img src="img/xc.png"></center>
+
   </div>
 
   <div data-role="main" class="ui-content">
@@ -35,11 +51,14 @@
 
   <div data-role="footer" data-position="fixed" >
 
+<div id="primera">
+<a title="Los Tejos" href="#pageQR" data-rel="dialog" data-transition="pop"><img src="img/qr.png"  alt="Los Tejos" /></a></div>
 
-	<a href="#pageQR" data-rel="dialog" data-transition="pop">QR</a>
-	<a href="#pageSocial" data-rel="dialog" data-transition="pop">Compartir</a>
-
-  </div>
+<div id="segunda">
+<a title="Los Tejos" href="#pageSocial" data-rel="dialog" data-transition="pop"><img src="img/share.png" alt="Los Tejos" /></a></div>
+</div>
+</div>
+ 
 <script>
 function scanear(){ 
     cordova.plugins.barcodeScanner.scan( 
